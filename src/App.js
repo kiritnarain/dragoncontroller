@@ -15,16 +15,26 @@ class App extends React.Component{
     }
 
     componentDidMount() {
+        this.fetchIP();
+
+        setInterval(() => {
+            this.fetchIP();
+        }, 30000);
+    }
+
+    fetchIP(){
         fetch(this.BACKEND_IP+'//getIP')
             .then(response => {
                 console.log('Got Dragon IP: '+response);
-               if(response!=="0.0.0.0"){
-                   this.setState({
-                       serverIP: response
-                   });
-               }
+                if(response!=="0.0.0.0"){
+                    this.setState({
+                        serverIP: response
+                    });
+                }
             });
     }
+
+
 
     render() {
         return (

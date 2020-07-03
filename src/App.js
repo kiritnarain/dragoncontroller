@@ -4,7 +4,7 @@ import './App.css';
 import Controls from "./Controls";
 
 class App extends React.Component{
-    BACKEND_IP = "http://localhost:5091";
+    BACKEND_IP = "http://kiritnarain.com/dragonbackend";
 
     constructor(props) {
         super(props);

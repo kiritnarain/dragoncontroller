@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "homepage": "http://kiritnarain.com/dragondroid",
-  "proxy": "http://kiritnarain.com",
+  "proxy": "http://139.162.48.23:5090",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",

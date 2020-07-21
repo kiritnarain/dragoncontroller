@@ -5,6 +5,13 @@ import './Controls.css';
  * Props: serverIP, speed
  */
 class Controls extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            lowSpeed: 600,
+            highSpeed: 1000
+        }
+    }
 
     move = (deg) => {
         if(this.props.serverIP!==undefined){
@@ -34,19 +41,25 @@ class Controls extends React.Component {
     render() {
         return (
             <div className="centered">
-                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-                      rel="stylesheet"/>
                 <table className="box">
                     <tbody>
 
                     <tr>
-                        <td></td>
+                        <td>
+                            <button onMouseDown={() => this.move(315)} onMouseUp={this.stop} onTouchStart={() => this.move(315)} onTouchEnd={this.stop} >
+                                <i className="material-icons flippedIcon">call_made</i>
+                            </button>
+                        </td>
                         <td>
                             <button onMouseDown={() => this.move(0)} onMouseUp={this.stop} onTouchStart={() => this.move(0)} onTouchEnd={this.stop} >
                                 <i className="material-icons">arrow_circle_up</i>
                             </button>
                         </td>
-                        <td></td>
+                        <td>
+                            <button onMouseDown={() => this.move(45)} onMouseUp={this.stop} onTouchStart={() => this.move(45)} onTouchEnd={this.stop} >
+                                <i className="material-icons">call_made</i>
+                            </button>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -62,13 +75,21 @@ class Controls extends React.Component {
                         </td>
                     </tr>
                     <tr>
-                        <td></td>
+                        <td>
+                            <button onMouseDown={() => this.move(225)} onMouseUp={this.stop} onTouchStart={() => this.move(225)} onTouchEnd={this.stop}>
+                                <i className="material-icons">call_received</i>
+                            </button>
+                        </td>
                         <td>
                             <button onMouseDown={() => this.move(180)} onMouseUp={this.stop} onTouchStart={() => this.move(180)} onTouchEnd={this.stop}>
                                <i className="material-icons">arrow_circle_down</i>
                             </button>
                         </td>
-                        <td></td>
+                        <td>
+                            <button onMouseDown={() => this.move(135)} onMouseUp={this.stop} onTouchStart={() => this.move(135)} onTouchEnd={this.stop}>
+                                <i className="material-icons flippedIcon">call_received</i>
+                            </button>
+                        </td>
                     </tr>
                     </tbody>
                 </table>

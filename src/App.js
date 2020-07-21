@@ -22,6 +22,8 @@ class App extends React.Component{
     render() {
         return (
             <div className="App">
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+                      rel="stylesheet"/>
                 <Status serverIP={this.state.serverIP}></Status>
                 <Controls serverIP={this.state.serverIP} speed={this.state.speed}></Controls>
             </div>

@@ -34,13 +34,37 @@ class Status extends React.Component{
         xhttp.send();
     };
 
+    resetWifi = () => {
+        if(this.props.serverIP!==undefined){
+            const getReq = this.props.serverIP + "/resetwifi";
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                console.log("wifi reset");
+            };
+            xhttp.open("GET", getReq, true);
+            xhttp.send();
+            this.setState({
+                isConnected: false,
+                SSID: ""
+            });
+        }
+    };
 
-    render() {
+    showStatus(){
         if(this.state.isConnected){
-            return (<p>Dragon Droid is Connected with SSID: ${this.state.SSID}</p>)
+            return (<p>Dragon Droid is Connected with SSID: {this.state.SSID}</p>)
         }else{
             return (<p>Dragon Droid disconnected.</p>)
         }
+    }
+
+
+    render() {
+        return (<div>
+            ${this.showStatus()}
+            <button onClick={this.fetchStatus}><i className="material-icons">autorenew</i></button>
+            <button onClick={this.resetWifi}><i className="material-icons">settings_input_antenna</i></button>
+        </div>);
     }
 
 }
